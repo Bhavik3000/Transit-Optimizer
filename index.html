@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Commute Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="mesh-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo nav-item">Transit<span>Optimizer</span></div>
+            <div class="nav-links">
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">History</a>
+                <button id="settings-btn" class="nav-btn">⚙️ Settings</button>
+                <button id="sync-calendar-btn" class="nav-btn">📅 Sync Calendar</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="login-screen" class="login-container">
+            <h2>Welcome to Transit AI</h2>
+            <p>Sign in to configure your custom commute.</p>
+            <div id="google-btn"></div> 
+        </div>
+
+        <div class="dashboard-card" id="main-dashboard" style="display: none;">
+            <div class="card-header">
+                <div class="header-title">
+                    <div class="pulse-indicator"></div>
+                    <h2>Your Smart Commute Assistant</h2>
+                </div>
+                <div class="live-status">
+                    <span id="live-clock">--:-- --</span>
+                    <span class="status-divider">•</span>
+                    <span id="live-weather">--°C</span>
+                </div>
+            </div>
+            <div class="direction-toggle">
+                <button class="dir-btn active" id="btn-to-ubc">To UBC</button>
+                <button class="dir-btn" id="btn-to-home">To Home</button>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" id="user-question" placeholder="e.g., Should I take the bus or drive today?" autocomplete="off">
+                </div>
+                <button id="ask-btn" type="button">
+                    <span class="btn-text">Ask Assistant</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </div>
+
+            <div class="response-panel" id="response-panel">
+                <div class="response-header">
+                    <span class="badge success" id="res-badge">Optimal Route</span>
+                </div>
+                <h3 class="recommendation" id="res-recommendation">--</h3>
+                <p class="reasoning" id="res-reasoning">--</p>
+                
+                <div class="tags-container">
+                    <span class="tag">Live Transit</span>
+                    <span class="tag">Calendar Synced</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="calendar-widget" class="dashboard-card" style="display: none; margin-top: 1.5rem;">
+            <div class="card-header">
+                <h3>Upcoming Schedule</h3>
+            </div>
+            <ul id="events-list" class="events-list">
+                </ul>
+        </div>
+    </main>
+
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>📍 Location Settings</h2>
+            <p>Set your daily commute locations to enable proactive AI alerts.</p>
+
+            <div class="input-wrapper">
+                <label>Home Address</label>
+                <input type="text" id="home-address" placeholder="e.g., 123 Main St, Vancouver" autocomplete="off">
+            </div>
+
+            <div class="input-wrapper">
+                <label>University / Work Address</label>
+                <input type="text" id="school-address" placeholder="e.g., UBC Bus Loop, Vancouver" autocomplete="off">
+            </div>
+
+            <div class="modal-actions">
+                <button id="close-modal-btn" type="button" class="btn-secondary">Cancel</button>
+                <button id="save-settings-btn" type="button" class="btn-primary">Save Locations</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
