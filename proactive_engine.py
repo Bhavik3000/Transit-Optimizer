@@ -22,9 +22,5 @@ class ProactiveEngine:
         print("3. Checking live TransLink delays...")
         print("✅ No immediate action required. Going back to sleep.")
         
-        # NOTE: To make this fully functional, we would need to securely store 
-        # the Google access_token in the database so the background worker 
-        # can read the calendar even when the user's browser is closed.
 
-# Create a global instance of the engine
 engine = ProactiveEngine()

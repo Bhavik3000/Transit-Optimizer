@@ -5,13 +5,16 @@ from email.mime.text import MIMEText
 from ai_service import AIService
 from transit_service import TransitService
 from calendar_desktop_test import CalendarService
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 # --- Config --- #
-SENDER_EMAIL = "bhavik00003@gmail.com"
-SENDER_PASSWORD = "ofne paiw iknm qxki"
-RECEIVER_SMS = "bhavik00003@gmail.com"
-STOP_ID = "s-c2b2j9x0c8-westboundw49ave~wiltshirest"
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
+RECEIVER_SMS = os.getenv("RECEIVER_SMS")
+STOP_ID = os.getenv("STOP_ID")
 
 
 def send_sms(message_body):

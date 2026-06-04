@@ -1,6 +1,11 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 from google import genai
 
-client = genai.Client(api_key="AIzaSyAn5CTruGqWrtlZilcFs6JNwVvsXFEYF2g")
+client = genai.Client(api_key=os.getenv("GEMINIAI_API_KEY"))
 
 class AIService:
     @staticmethod
