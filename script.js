@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentUserEmail = responsePayload.email;
 
         try {
-            await fetch("http://127.0.0.1:8000/login", {
+            await fetch("https://transit-optimizer-ai-backend.onrender.com/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/chat", {
+            const response = await fetch("https://transit-optimizer-ai-backend.onrender.com/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
             saveSettingsBtn.disabled = true;
 
             try {
-                const response = await fetch("http://127.0.0.1:8000/update-settings", {
+                const response = await fetch("https://transit-optimizer-ai-backend.onrender.com/update-settings", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
         syncCalendarBtn.disabled = true;
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/sync-calendar", {
+            const response = await fetch("https://transit-optimizer-ai-backend.onrender.com/sync-calendar", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
