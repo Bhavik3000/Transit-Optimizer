@@ -10,6 +10,48 @@ document.addEventListener("DOMContentLoaded", () => {
     let tokenClient; 
     let currentCalendarEvents = [];
 
+    // mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+
+//     const map = new mapboxgl.Map({
+//         container: 'map', 
+//         style: 'mapbox://styles/mapbox/dark-v11', 
+//         center: [-123.24, 49.26], // [longitude, latitude]
+//         zoom: 12
+//     });
+
+//     map.on('load', () => {
+//     // 1. Add the GeoJSON data as a "source"
+//     map.addSource('transit-route', {
+//         'type': 'geojson',
+//         'data': {
+//             "type": "Feature",
+//             "properties": {},
+//             "geometry": {
+//                 "type": "LineString",
+//                 "coordinates": [
+//                     [-123.24, 49.26],
+//                     [-123.20, 49.25],
+//                     [-123.15, 49.26] 
+//                 ]
+//             }
+//         }
+//     });
+
+//     map.addLayer({
+//         'id': 'route-line',
+//         'type': 'line',
+//         'source': 'transit-route',
+//         'layout': {
+//             'line-join': 'round',
+//             'line-cap': 'round'
+//         },
+//         'paint': {
+//             'line-color': '#00ff00', 
+//             'line-width': 5
+//         }
+//     });
+// });
+
     window.onload = function () {
         // 1. Google Identity (For Login)
         google.accounts.id.initialize({
